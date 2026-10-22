@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cổng Thông Tin Điện Tử - ICTU News</title>
+    <!-- Bootstrap 5 CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/"><i class="bi bi-newspaper text-warning"></i> ICTU NEWS PORTAL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/"><i class="bi bi-house-door"></i> Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/category/thoisu">Thời sự</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/category/congnghe">Công nghệ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/category/giaoduc">Giáo dục</a></li>
+                </ul>
+                
+                <!-- Thanh tìm kiếm -->
+                <form class="d-flex me-3" action="/search" method="get">
+                    <div class="input-group">
+                        <input type="text" name="keyword" class="form-control form-control-sm" placeholder="Tìm kiếm bài viết..." value="{{ keyword if keyword else '' }}" required>
+                        <button class="btn btn-outline-warning btn-sm" type="submit"><i class="bi bi-search"></i></button>
+                    </div>
+                </form>
+
+                <div class="d-flex align-items-center gap-2">
+                    <a href="/writer/new" class="btn btn-warning text-dark fw-bold btn-sm"><i class="bi bi-pencil-square"></i> Viết bài</a>
+                    
+                    {% if user %}
+                        <span class="text-light ms-2 small"><i class="bi bi-person-circle"></i> {{ user }}</span>
+                        <a href="/auth/logout" class="btn btn-outline-danger btn-sm"><i class="bi bi-box-arrow-right"></i> Đăng xuất</a>
+                    {% else %}
+                        <a href="/auth/login" class="btn btn-outline-light btn-sm"><i class="bi bi-box-arrow-in-right"></i> Đăng nhập</a>
+                        <a href="/auth/register" class="btn btn-primary btn-sm"><i class="bi bi-person-plus"></i> Đăng ký</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="text-center py-4 bg-dark text-light mt-5">
+        <div class="container">
+            <p class="mb-1 fw-bold">Hệ thống Cổng thông tin điện tử - ICTU News Portal</p>
+            <p class="mb-1 text-muted small">Thực hiện bởi: Lữ Văn Chinh - Lớp Công nghệ Thông tin</p>
+            <small class="text-secondary">&copy; 2026 - Trường Đại học Công nghệ Thông tin và Truyền thông (ICTU)</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

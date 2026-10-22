@@ -1,0 +1,56 @@
+:root {
+    --primary-color: #0d6efd;
+    --dark-color: #212529;
+    --light-bg: #f8f9fa;
+}
+
+body {
+    background-color: var(--light-bg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+/* Hero Featured Post (Tin nổi bật) */
+.hero-section {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 30px;
+}
+.hero-section a {
+    color: #ffc107;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Card Styling */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,.1);
+}
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: #adb5bd;
+    padding: 30px 0;
+    margin-top: 50px;
+}

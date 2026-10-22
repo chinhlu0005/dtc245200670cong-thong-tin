@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        <div class="card shadow p-4 border-0">
+            <h3 class="text-center fw-bold mb-4 text-primary"><i class="bi bi-box-arrow-in-right"></i> Đăng Nhập</h3>
+            
+            {% if error %}
+            <div class="alert alert-warning py-2 text-center" role="alert">
+                <i class="bi bi-exclamation-triangle-fill"></i> {{ error }}
+            </div>
+            {% endif %}
+
+            <form action="/auth/login" method="post">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Tên đăng nhập</label>
+                    <input type="text" name="username" class="form-control" required placeholder="Nhập tên đăng nhập..."
+                           oninvalid="this.setCustomValidity('Vui lòng nhập tên đăng nhập!')" oninput="this.setCustomValidity('')">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Mật khẩu</label>
+                    <input type="password" name="password" class="form-control" required placeholder="Nhập mật khẩu..."
+                           oninvalid="this.setCustomValidity('Vui lòng nhập mật khẩu!')" oninput="this.setCustomValidity('')">
+                </div>
+                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Đăng Nhập</button>
+            </form>
+            <div class="text-center mt-3">
+                <small class="text-muted">Chưa có tài khoản? <a href="/auth/register" class="text-decoration-none fw-bold">Đăng ký tài khoản mới</a></small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
